@@ -1,1 +1,36 @@
+Console.Write("podaj długość tablicy: ");
+int n = int.Parse(Console.ReadLine());
 
+int[] tab = new int[n];
+
+
+
+for(int i = 0; i<n; i++)
+{
+   Random rng = new Random();
+   int nbr = rng.Next() % 100;
+
+    tab[i] = nbr;   
+} // losowanie liczb oraz przydzielenie jej do tablicy
+
+int x;
+
+for(int i = 0; i<n; i++) // gdy petla nizej for sprawdzi liczbe sprawdzana jest kolejna liczba z tablicy
+{
+    for(int j=0; j<n-1; j++) //sprawdzenie konkretnej liczby
+    {
+        if(tab[j] > tab[j+1])
+        {
+        x = tab[j];
+        tab[j] = tab[j+1];
+        tab[j+1] = x;  //zamieniamy miejscami elementy tablicy
+        }
+    }
+}// sortowanie
+
+
+for(int i = 0; i < n; i++)
+{
+    Console.WriteLine($"Element[{i}] = " + tab[i]);
+    
+} // wypisanie posortowanych liczb w kolejnosci rosnacej
